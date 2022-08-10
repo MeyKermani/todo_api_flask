@@ -74,8 +74,8 @@ class Task(db.Model):
     """Basic task model"""
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(128), unique=True, nullable=False)
-    content = db.Column(db.String(256), unique=True, nullable=False)
+    title = db.Column(db.String(128), nullable=False)
+    content = db.Column(db.String(256), nullable=False)
     is_active = db.Column(db.Boolean, default=True)
     project_id = db.Column(db.Integer, db.ForeignKey("project.id"))
     project = db.relationship("Project", back_populates="tasks")
