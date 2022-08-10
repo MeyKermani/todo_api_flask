@@ -40,8 +40,7 @@ class UserList(Resource):
     """Creation and get_all
     """
 
-    method_decorators = [jwt_required()]
-
+    @jwt_required()
     def get(self):
         schema = UserSchema(many=True)
         query = User.query
